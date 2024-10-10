@@ -9,9 +9,15 @@ body {
 
 /* Navigation Bar Styles */
 .navbar {
+  position: fixed;
+  /* Keeps the navbar always at the top */
+  top: 0;
+  width: 100%;
+  z-index: 8;
+    /* Ensures the navbar is above all other elements */
   background-color: #e6e8fd;
   /* Light blue background */
-  padding: 10px 20px;
+  padding: 10px 0px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,6 +27,7 @@ body {
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
+  padding: 0px 20px;
 }
 
 /* Logo */
@@ -108,7 +115,7 @@ body {
   color: #f28c3b;
   /* Red-Orange color */
   font-weight: bold;
-  margin-bottom: 30px;
+  margin: 40px 0px 30px 0px;
   font-size: 24px;
 }
 
@@ -233,14 +240,6 @@ body {
 .recently-published {
   text-align: center;
   padding: 40px 20px;
-}
-
-.section-title {
-  color: #f28c3b;
-  /* Red-Orange color */
-  font-weight: bold;
-  margin-bottom: 30px;
-  font-size: 24px;
 }
 
 /* Carousel Container */
@@ -403,6 +402,7 @@ body {
 /* Hero Section Styles */
 .hero {
   position: relative;
+  z-index: 9;
   height: 100vh;
   width: 100%;
   display: grid;
@@ -622,6 +622,7 @@ body {
     margin: 10px 0;
   }
   .hero {
+    z-index: 2;
     height: 40vh;
     margin-bottom: 60vh;
     display:grid;
@@ -676,6 +677,7 @@ body {
 
   .section-title {
     font-size: 20px;
+    margin: 0px 0px 30px 0px;
   }
 
   .portfolio-button {
@@ -775,4 +777,10 @@ body {
   100% {
     transform: translateX(calc(-100% + 100vw));
   }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+  /* Makes all anchor links scroll smoothly */
 }
