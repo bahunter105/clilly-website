@@ -7,6 +7,13 @@ body {
   background-color: #e6e8fd;;
 }
 
+.barlow-condensed-bold {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
 /* Navigation Bar Styles */
 .navbar {
   position: fixed;
@@ -36,6 +43,11 @@ body {
   /* Blue color matching the button */
   font-weight: bold;
   font-size: 20px;
+}
+
+.logo a{
+  color: #2b46f2;
+  text-decoration: none;
 }
 
 /* Menu Icon for Mobile */
@@ -533,6 +545,12 @@ body {
   /* Rounded corners for the button */
 }
 
+.order-button a{
+  text-decoration: none;
+  color: #f28c3b;
+  font-weight: bold;
+}
+
 .order-button:hover {
   background-color: #f28c3b;
   color: #fff7b3;
@@ -566,10 +584,6 @@ body {
 
 .about-me-image img {
   width: 400px;
-  /* height: auto;
-  border-radius: 10px; */
-  /* Optional rounded corners */
-  padding-bottom: 70px;
 }
 
 /* Content Section */
@@ -589,6 +603,143 @@ body {
   line-height: 1.6;
   color: #333;
   /* Dark gray for readability */
+}
+
+/* Portfolio Title Section Styling */
+.portfolio-title {
+  position: relative;
+  background-image: url('images/portfolio-pexels-mister-mister-2442888\ 1.png');
+  /* Replace with the actual image path */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 74px;
+}
+
+.portfolio-title-overlay {
+  text-align: center;
+  color: #ffffff;
+  /* White text for contrast */
+  background: rgba(0, 0, 0, 0);
+  /* Semi-transparent background for text */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.portfolio-title-overlay h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.portfolio-title-overlay p {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Portfolio Section Styling */
+.portfolio-section {
+  background-color: #ffffff;
+  padding: 40px;
+  text-align: center;
+  color: #FA643F
+}
+
+.portfolio-section h2 {
+  /* Blue */
+  margin-bottom: 30px;
+}
+
+.reporting-photography-colors{
+  background-color: #d9e5ff;
+  color: #2b46f2;
+}
+
+/* Portfolio Cards Container */
+.portfolio-cards-div{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px
+}
+
+/* Portfolio Card Styling */
+.portfolio-card {
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio-card-image-div {
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-card-image-div img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.portfolio-card-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.portfolio-card-content h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.portfolio-card-content p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.portfolio-card-read-more {
+  color: #FA643F;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.portfolio-card-read-more-reporting-photography-colors {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* More Projects Button */
+.portfolio-more-projects-reporting-photography-colors {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 20px;
+  border: 2px solid #2b46f2;
+  color: #2b46f2;
+  text-decoration: none;
+  font-weight: bold;
+    background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.portfolio-more-projects {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 20px;
+  border: 2px solid #FA643F;
+  color: #FA643F;
+  text-decoration: none;
+  font-weight: bold;
+    background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Responsive Design */
@@ -747,6 +898,32 @@ body {
 
   .about-me-image img {
     padding-bottom: 0px;
+  }
+
+  .portfolio-title {
+    margin-top: 47px;
+  }
+
+  /* Portfolio Cards Container */
+  .portfolio-cards-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Portfolio Card Styling */
+  .portfolio-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .portfolio-card-image-div {
+    width: 40%;
+    height: auto;
+  }
+
+  .portfolio-card-content {
+    width: 50%
   }
 }
 
