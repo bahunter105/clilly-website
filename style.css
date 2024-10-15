@@ -742,6 +742,101 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Article Section Styling */
+.article-section {
+  background-color: #ffffff;
+  padding: 80px 40px 60px 40px;
+  max-width: 100%;
+  color: #e76524;
+}
+
+/* Article Header */
+.article-header {
+  text-align: center;
+}
+
+.article-header h1 {
+  margin-bottom: 20px;
+}
+
+.article-header img {
+  width: 60%;
+  min-width: 225px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Article Content Styling */
+.article-content h2 {
+  color: #e76524;
+  /* Orange color for section titles */
+  margin-top: 30px;
+}
+
+.article-content p,
+.article-content ul {
+  margin-bottom: 20px;
+}
+
+.article-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Testimonial Styling */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #e76524;
+  padding-left: 20px;
+  margin: 20px 0;
+  color: #e76524;
+}
+
+/* Images Section */
+.article-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.article-images img {
+  width: 48%;
+  /* Each image takes almost half of the available width */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Contact Section Styling */
+.contact-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.contact-button {
+  background-color: #e76524;
+  /* Button with orange color */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #c8501c;
+  /* Darker shade on hover */
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .menu-icon {
@@ -924,6 +1019,23 @@ body {
 
   .portfolio-card-content {
     width: 50%
+  }
+
+  .article-section {
+    padding: 50px 40px 60px 40px;
+  }
+
+  .article-images {
+    flex-direction: column;
+    /* Stack images vertically */
+    align-items: center;
+  }
+
+  .article-images img {
+    width: 100%;
+    /* Full width for better display on mobile */
+    margin-bottom: 20px;
+    /* Space between stacked images */
   }
 }
 
