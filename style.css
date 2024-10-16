@@ -1014,6 +1014,126 @@ blockquote {
   border: 2px solid #f28c3b;
 }
 
+/* Past Works Section */
+.past-works-section {
+  padding: 80px 40px 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.past-works-section h2 {
+  color: #2b46f2;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar-wrapper {
+  position: relative;
+  width: 95%;
+}
+#search-bar {
+  width: 95%;
+  padding: 10px 10px 10px 40px;
+  border-radius: 25px;
+  border: 1px solid #d9e5ff;
+  background-color: #d9e5ff;
+  color: #2b46f2;
+  }
+
+#search-bar::placeholder {
+  color: #2b46f2;
+  /* Make placeholder text blue */
+  opacity: 1;
+  /* Ensure it's fully visible */
+}
+
+/* FontAwesome Search Icon Styles */
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  /* Position the icon inside the input */
+  transform: translateY(-50%);
+  color: #2b46f2;
+  /* Match the color of the input text */
+  pointer-events: none;
+  /* Ensure the icon does not block interaction with input */
+}
+
+/* Table Styles */
+.works-table {
+  width: 100%;
+  border-collapse: separate;
+  /* Allow space between rows */
+  border-spacing: 0 10px;
+  /* Adds 10px gap between rows vertically */
+}
+
+/* Header and Body Cell Styles */
+.works-table th,
+.works-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+/* Updated Table Header Styles */
+.works-table thead {
+  font-weight: bold;
+  color: #333;
+  /* Darker text for more contrast */
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.15);
+  /* Drop shadow for table header */
+  background-color: #ffffff;
+  /* Ensure background color is white for visibility */
+}
+
+.works-table tbody tr {
+  margin: 5px 0px 5px 0px;
+}
+
+/* Alternating Row Colors */
+.works-table tbody tr:nth-child(odd) {
+  background-color: #d9e5ff;
+  box-shadow: 0 0 0 2px #2b46f2;
+  /* Blue border for odd rows */  /* Light purple for odd rows */
+}
+
+.works-table tbody tr:nth-child(odd) td{
+  color:#2b46f2
+}
+
+.works-table tbody tr:nth-child(odd) td a{
+  color:#2b46f2;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.works-table tbody tr:nth-child(even) {
+  background-color: #fff4b3;
+  box-shadow: 0 0 0 2px #f28c3b;
+}
+
+.works-table tbody tr:nth-child(even) td {
+  color: #f28c3b
+}
+
+.works-table tbody tr:nth-child(even) td a {
+  color: #f28c3b;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.work-card {
+  display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .menu-icon {
@@ -1236,6 +1356,78 @@ blockquote {
   .latest-news {
     width: 100%;
   }
+
+  .past-works-section {
+    padding: 50px 40px 60px 40px;
+  }
+
+  #search-bar {
+    width: 85%;
+  }
+
+  .works-table {
+    display: none;
+    /* Hide the table on small screens */
+  }
+
+  .past-works-section {
+    padding: 10px;
+  }
+
+  .works-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .work-card {
+    display: block;
+    border: 2px solid #e76524;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff4b3;
+    color: #e76524;
+  }
+
+  .work-card a {
+    color: #e76524;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .work-card .work-header {
+    font-weight: bold;
+    color: #e76524;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .work-details {
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
+  }
+
+  .work-details.open {
+    display: block;
+  }
+
+  .works-container > div:nth-child(even) {
+    border: 2px solid #2b46f2;
+    background-color: #d9e5ff;
+  }
+
+  .works-container > div:nth-child(even) div{
+    color: #2b46f2;
+    border:none;
+  }
+
+  .works-container>div:nth-child(even) div a {
+    color: #2b46f2;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
 }
 
 @media (max-width: 1146px) {
