@@ -1017,7 +1017,6 @@ blockquote {
 /* Past Works Section */
 .past-works-section {
   padding: 80px 40px 60px 40px;
-  max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
 }
@@ -1371,7 +1370,8 @@ blockquote {
   }
 
   .past-works-section {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .works-container {
