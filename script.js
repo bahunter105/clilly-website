@@ -10,10 +10,7 @@ const slides = document.querySelectorAll('.carousel-item');
 const dots = document.querySelectorAll('.dot');
 const totalSlides = slides.length;
 
-console.log(slides)
-
 if (slides.length > 0) {
-  console.log("slides exist")
   // Variables for touch events
   let startX = 0;
   let endX = 0;
@@ -83,58 +80,24 @@ if (slides.length > 0) {
   }
 }
 
-// JavaScript to populate table and cards, and handle search functionality
-// Sample JSON data
-const worksData = [
-    {
-        title: "Engaging Blog Post Series",
-        publication: "Blog XYZ",
-        date: "03/2022",
-        category: "Copywriting",
-        link: "https://example.com/blog-series"
-    },
-    {
-        title: "Product Photography for Catalog",
-        publication: "Company ABC",
-        date: "05/2021",
-        category: "Photography",
-        link: "https://example.com/catalog"
-    },
-    {
-        title: "Monthly Social Media Campaign",
-        publication: "Client DEF",
-        date: "07/2023",
-        category: "Social Media Management",
-        link: "https://example.com/social-campaign"
-    },
-    {
-        title: "Annual Report Copywriting",
-        publication: "Non-Profit Organization",
-        date: "12/2022",
-        category: "Reporting",
-        link: "https://example.com/annual-report"
-    },
-    {
-        title: "Event Photography and Editing",
-        publication: "Event Planner JKL",
-        date: "11/2020",
-        category: "Photography",
-        link: "https://example.com/event-photography"
-    },
-    {
-        title: "Annual Financial Report Writing",
-        publication: "Finance Firm PQR",
-        date: "02/2023",
-        category: "Reporting",
-        link: "https://example.com/financial-report"
-    }
-];
-
 // Populate table and cards
-function populateWorks() {
-    console.log('populate works')
+function populateWorks(worksData) {
     const tableBody = document.getElementById("table-body");
     const worksContainer = document.getElementById("works-container");
+
+    worksData.forEach((work) => {
+      // Format date to MM/YYYY
+      if (work.date) {
+          // Extract the values from Date(year, month, day)
+          const dateMatch = work.date.match(/Date\((\d+),(\d+),(\d+)\)/);
+          if (dateMatch) {
+              const year = dateMatch[1];
+              const month = ("0" + (parseInt(dateMatch[2]) + 1)).slice(-2); // month is 0-based, adding 1 and padding with "0"
+              work.date = `${month}/${year}`;
+          }
+      }
+    })
+
 
     worksData.forEach((work) => {
         // Add rows to the table
@@ -180,8 +143,8 @@ function populateWorks() {
 }
 
 // Search Functionality
-function searchWorks() {
-    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+function searchWorks(worksData) {
+  const searchTerm = document.getElementById("search-bar").value.toLowerCase();
     const filteredWorks = worksData.filter((work) =>
         work.title.toLowerCase().includes(searchTerm) ||
         work.publication.toLowerCase().includes(searchTerm) ||
@@ -235,8 +198,35 @@ function searchWorks() {
     });
 }
 
-// Event Listeners
-document.getElementById("search-bar").addEventListener("input", searchWorks);
+if (document.querySelector("#table-body")){
+  fetch('https://docs.google.com/spreadsheets/d/1EMTdqDFDTO8Bw_ZfvPdvHxK65ypIvRmuVvuhfvSkb2o/gviz/tq?tqx=out:json')
+    .then(response => response.text())
+    .then(data => {
+      // Clean up the response to get proper JSON
+      const jsonData = JSON.parse(data.substring(47).slice(0, -2));
 
-// Populate works on page load
-document.addEventListener("DOMContentLoaded", populateWorks);
+      // Extract the columns metadata (titles)
+      const columns = jsonData.table.cols.map(col => col.label);
+
+      // Extract the rows data
+      const rows = jsonData.table.rows;
+
+      // Map rows to an array of objects using column titles as keys
+      const result = rows.map(row => {
+        let obj = {};
+        row.c.forEach((cell, index) => {
+          obj[columns[index]] = cell ? cell.v : null; // Use column label as key
+        });
+        return obj;
+      });
+
+      // **Populate works on page load immediately**
+      populateWorks(result);
+
+      // **Event Listener for Search** after population
+      document.getElementById("search-bar").addEventListener("input", () => searchWorks(result));
+    })
+    .catch(error => {
+      console.error('Error fetching Google Sheet data:', error);
+    });
+}
